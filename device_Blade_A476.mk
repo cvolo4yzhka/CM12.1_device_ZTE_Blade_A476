@@ -39,6 +39,7 @@ PRODUCT_COPY_FILES += \
 	device/ZTE/Blade_A476/rootdir/factory_init.project.rc:root/factory_init.project.rc \
 	device/ZTE/Blade_A476/rootdir/meta_init.project.rc:root/meta_init.project.rc \
 	device/ZTE/Blade_A476/rootdir/meta_init.modem.rc:root/meta_init.modem.rc \
+	device/ZTE/Blade_A476/rootdir/init_trace.rc:root/init.trace.rc \
 	device/ZTE/Blade_A476/rootdir/meta_init.rc:root/meta_init.rc 
 
 # TWRP thanks to Hanuma50
