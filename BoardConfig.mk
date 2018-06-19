@@ -142,7 +142,7 @@ VANZO_FEATURE_FACTORYMODE_USE_ENGLISH := yes
 
 # EGL settings
 USE_OPENGL_RENDERER := true
-BOARD_EGL_CFG := device/ZTE/Blade_A476/egl.cfg
+BOARD_EGL_CFG := device/ZTE/Blade_A476/config/egl.cfg
 BOARD_EGL_WORKAROUND_BUG_10194508 := true
 
 # SELinux

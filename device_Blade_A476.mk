@@ -24,7 +24,6 @@ endif
 
 # init.rc's
 PRODUCT_COPY_FILES += \
-	device/ZTE/Blade_A476/rootdir/enableswap.sh:root/enableswap.sh \
 	device/ZTE/Blade_A476/rootdir/init.mt6735.rc:root/init.mt6735.rc \
 	device/ZTE/Blade_A476/rootdir/init.ssd.rc:root/init.ssd.rc \
 	device/ZTE/Blade_A476/rootdir/init.xlog.rc:root/init.xlog.rc \
@@ -33,14 +32,15 @@ PRODUCT_COPY_FILES += \
 	device/ZTE/Blade_A476/rootdir/init.recovery.mt6735.rc:root/init.recovery.mt6735.rc \
 	device/ZTE/Blade_A476/rootdir/init.project.rc:root/init.project.rc \
 	device/ZTE/Blade_A476/rootdir/init.modem.rc:root/init.modem.rc \
-	device/ZTE/Blade_A476/recovery/root/fstab.mt6735:root/fstab.mt6735  \
+	device/ZTE/Blade_A476/recovery/root/fstab.mt6735:root/fstab.mt6735 \
 	device/ZTE/Blade_A476/rootdir/ueventd.mt6735.rc:root/ueventd.mt6735.rc \
 	device/ZTE/Blade_A476/rootdir/factory_init.rc:root/factory_init.rc \
 	device/ZTE/Blade_A476/rootdir/factory_init.project.rc:root/factory_init.project.rc \
 	device/ZTE/Blade_A476/rootdir/meta_init.project.rc:root/meta_init.project.rc \
 	device/ZTE/Blade_A476/rootdir/meta_init.modem.rc:root/meta_init.modem.rc \
-	device/ZTE/Blade_A476/rootdir/init.trace.rc:root/init.trace.rc \
-	device/ZTE/Blade_A476/rootdir/meta_init.rc:root/meta_init.rc 
+	device/ZTE/Blade_A476/rootdir/meta_init.rc:root/meta_init.rc \
+	device/ZTE/Blade_A476/rootdir/enableswap.sh:root/enableswap.sh \
+	device/ZTE/Blade_A476/rootdir/init.trace.rc:root/init.trace.rc
 
 # TWRP thanks to Hanuma50
 PRODUCT_COPY_FILES += device/ZTE/Blade_A476/recovery/twrp.fstab:recovery/root/etc/twrp.fstab
@@ -115,6 +115,12 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf \
 	$(LOCAL_PATH)/configs/audio_effects.conf:system/etc/audio_effects.conf
 
+# Thermal
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/configs/thermal/thermal.conf:system/etc/.tp/thermal.conf \
+	$(LOCAL_PATH)/configs/thermal/thermal.off.conf:system/etc/.tp/thermal.off.conf \
+	$(LOCAL_PATH)/configs/thermal/.ht120.mtc:system/etc/.tp/.ht120.mtc
+		
 # Charger
 PRODUCT_PACKAGES += \
 	charger_res_images
@@ -127,7 +133,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/apns-conf.xml:system/etc/apns-conf.xml \
 	$(LOCAL_PATH)/configs/ecc_list.xml:system/etc/ecc_list.xml \
-	$(LOCAL_PATH)/configs/spn-conf.xml:system/etc/spn-conf.xml 
+	$(LOCAL_PATH)/configs/spn-conf.xml:system/etc/spn-conf.xml
 
 # Torch
 PRODUCT_PACKAGES += \
@@ -135,7 +141,7 @@ PRODUCT_PACKAGES += \
 
 # Network dependency
 PRODUCT_PACKAGES += \
-	libifaddrs	
+	libifaddrs
 
 # STk
 PRODUCT_PACKAGES += \
@@ -153,7 +159,7 @@ PRODUCT_PACKAGES += \
 	libfmmt6628 \
 	libfmmt6627 \
 	libfmmt6630 \
-	libfmcust 
+	libfmcust
 
 # Media	
 PRODUCT_COPY_FILES += \
@@ -176,7 +182,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES := \
 	persist.sys.timezone=Europe/Moscow \
 	persist.sys.language=ru \
-	persist.sys.country=RU 
+	persist.sys.country=RU
 
 ADDITIONAL_DEFAULT_PROPERTIES += \
 	ro.secure=0 \
